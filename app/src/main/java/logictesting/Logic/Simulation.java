@@ -44,7 +44,7 @@ public class Simulation{
 
     public void run(){
 
-        while(true){
+        while(numberOfSimulations < simAmount){
             numberOfTurns++;
 
             Card.Color botColor = Card.Color.BLUE;
@@ -114,14 +114,9 @@ public class Simulation{
 
             if(endGame()){
                 numberOfTurns = 0;
-
-                if(numberOfSimulations == simAmount){
-                    break;
-                }
-                else{
-                    Collections.shuffle(board.players);
-                    board.initiliaze();
-                }
+                Collections.shuffle(board.players);
+                board.initiliaze();
+                System.out.println(numberOfSimulations);
             }
             else{
                 switchToNextPlayer();
